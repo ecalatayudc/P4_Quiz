@@ -95,10 +95,10 @@ exports.testCmd = (rl,id) =>{
 				rl.question(colorize( quiz.question + '? ', 'red'), answer =>{
 					if(getCleanedString( answer.toLowerCase().trim()) === getCleanedString(quiz.answer.toLowerCase().trim())){
 						log('Su respuesta es: ');
-						biglog('CORRECTA', 'green');
+						biglog('Correcta', 'green');
 					}else{
 						log('Su respuesta es: ');
-						biglog('INCORRECTA', 'red');
+						biglog('Incorrecta', 'red');
 					}
 					
 					rl.prompt();
