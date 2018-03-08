@@ -188,7 +188,7 @@ exports.playCmd = rl =>{
 			return toBeResolved;
 	})
 	.then(toBeResolved => {
-		const playone= () =>{
+	const playone= () =>{
 			if(toBeResolved.length === 0){
 				log(` ¡QUIZ COMPLETADO!`);
 				log(` Tu número de aciertos ha sido: ${score}`);
@@ -210,11 +210,11 @@ exports.playCmd = rl =>{
 					.then(a => {
 						if(getCleanedString( a.toLowerCase()) === getCleanedString(quiz.answer.toLowerCase().trim())){
 							score++;
-							log(`su respuesta es correcta - llevas ${score} aciertos`);
+							log(`Su respuesta es: correcta `);
 							playone();
 								//biglog('Correcta', 'green');
 						}else{
-							log('Respuesta incorrecta, fin del quiz');
+							log(`Su respuesta es: incorrecta `);
 							log(`número total de aciertos: ${score}`);
 							//biglog(score, 'blue');
 							rl.prompt();
