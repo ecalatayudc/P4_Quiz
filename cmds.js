@@ -191,8 +191,8 @@ exports.playCmd = rl =>{
 		const playone= () =>{
 			if(toBeResolved.length === 0){
 				log(` ¡QUIZ COMPLETADO!`);
-				log(` Tu número de aciertos ha sido:`);
-				biglog(score, 'blue');
+				log(` Tu número de aciertos ha sido: ${score}`);
+				//biglog(score, 'blue');
 				rl.prompt();
 			}else{
 				let nTBR=Math.floor(Math.random()*(toBeResolved.length));
@@ -215,8 +215,8 @@ exports.playCmd = rl =>{
 								//biglog('Correcta', 'green');
 						}else{
 							log('Respuesta incorrecta, fin del quiz');
-							log('número total de aciertos:');
-							biglog(score, 'blue');
+							log(`número total de aciertos: ${score}`);
+							//biglog(score, 'blue');
 							rl.prompt();
 						}	
 					});
