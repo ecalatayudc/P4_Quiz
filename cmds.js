@@ -210,14 +210,13 @@ exports.playCmd = rl =>{
 					.then(a => {
 						if(getCleanedString( a.toLowerCase()) === getCleanedString(quiz.answer.toLowerCase().trim())){
 							score++;
-							log(`Su respuesta es:`);
+							log(`respuesta correct - lleva ${score} aciertos`);
 							playone();
-								biglog('Correcta', 'green');
+								//biglog('Correcta', 'green');
 						}else{
-							log(`Su respuesta es: `);
-							biglog('incorrecta', 'red');
-							log(`número total de aciertos:`);
-							biglog(score, 'blue');
+							log(`Respuesta incorrect, fin del quiz `);
+							log(`número total de aciertos: ${score}`);
+							//biglog(score, 'blue');
 							rl.prompt();
 						}	
 					});
