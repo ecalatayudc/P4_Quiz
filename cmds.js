@@ -228,7 +228,7 @@ exports.playCmd = rl =>{
 		errorlog(error.message);
 	})
 	.then(() => {
-		console.log(score);
+		console.log('Fin'+score);
 		rl.prompt();
 	});
 
