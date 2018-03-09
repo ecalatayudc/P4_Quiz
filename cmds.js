@@ -201,11 +201,12 @@ exports.playCmd = rl =>{
 
 				if(anser.toLowerCase().trim()==quiz.answer.toLowerCase().trim()){
 					score++;
-					console.log("animo ");
+					console.log("correcta ");
 					return playone();
 
 				}else{
-					console.log("KAKA");
+					console.log("incorrecta");
+					rl.prompt();
 					//resolve();
 				}
 			})
