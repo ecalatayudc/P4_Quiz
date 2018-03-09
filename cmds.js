@@ -187,7 +187,7 @@ exports.playCmd = rl =>{
 		.then (() => {
 
 			if(toBePlayed.length<=0){
-				console.log("SACABO");
+				console.log("Fin");
 				//resolve();
 				return;
 			}
