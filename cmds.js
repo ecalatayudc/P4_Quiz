@@ -176,7 +176,66 @@ exports.testCmd = (rl,id) =>{
 	
 };
 exports.playCmd = rl =>{
-	let score = 0;
+	let score =0;
+	let toBePlayed=[];
+	
+
+
+	const playone = () => {
+
+		return Promise.resolve()
+		.then (() => {
+
+			if(toBePlayed.length<=0){
+				console.log("SACABO");
+				//resolve();
+				return;
+			}
+
+			let pos =Math.floor(Math.random()*toBePlayed.length)
+			let quiz = toBePlayed[pos];
+			toBePlayed.splice(pos,1);
+
+			return makeQuestion(rl, quiz.question +'? ')
+			.then(anser => {
+
+				if(anser.toLowerCase().trim()==quiz.answer.toLowerCase().trim()){
+					score++;
+					console.log("animo ");
+					return playone();
+
+				}else{
+					console.log("KAKA");
+					//resolve();
+				}
+			})
+		})
+		//return new Sequelize.Promise((resolve,reject)=>{
+
+		//})
+	}
+
+	models.quiz.findAll({raw: true})//raw devuelve un array mas pequeño que sin el 
+	.then(quizzes => {
+		toBePlayed=quizzes;
+
+	})
+	.then(()=>{
+		return playone();// con el return el catch se espera hasta que la promesa playone haya acabado(devuelve una promesa)
+	})
+	.catch(error => {
+		errorlog(error.message);
+	})
+	.then(() => {
+		console.log(score);
+		rl.prompt();
+	});
+
+
+
+
+
+	/*let score = 0;
 	let toBeResolved = [];
     let i=0;
     return models.quiz.findAll()
@@ -230,7 +289,7 @@ exports.playCmd = rl =>{
 	})
 	.then(() => {
 		rl.prompt();
-	});
+	});*/
 };
 
 exports.creditsCmd = rl =>{
