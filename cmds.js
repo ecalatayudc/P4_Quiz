@@ -206,7 +206,6 @@ exports.playCmd = rl =>{
 
 				}else{
 					console.log("incorrecta");
-					rl.prompt();
 					//resolve();
 				}
 			})
