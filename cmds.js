@@ -1,7 +1,7 @@
 const {log, biglog, errorlog, colorize} = require("./out");
 const {models} = require("./model");
 const Sequelize = require('sequelize');
-
+const net = require("net");
 
 exports.helpCmd = (socket,rl) =>{
      log(socket,"Comandos:");
@@ -64,7 +64,7 @@ exports.showCmd = (socket,rl,id) =>{
 	});
 };
  
-const makeQuestion = (socket,rl, text) => {
+const makeQuestion = (rl, text) => {
 	return new Sequelize.Promise((resolve, reject) => {
 		rl.question(colorize(text,'red'), answer =>{
 			resolve(answer.trim());
